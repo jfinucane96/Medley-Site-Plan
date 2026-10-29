@@ -1804,6 +1804,52 @@ input[type=range]::-moz-range-thumb {
   .countdown-strip { display: none !important; }
 }
 
+/* =================== PHONE PAGE (map.html) =================== */
+html:has(.map-only), body:has(.map-only) { overflow: hidden; overscroll-behavior: none; }
+.app.map-only { position: fixed; inset: 0; height: auto; }
+.map-only .map-shell { position: absolute; inset: 0; }
+.map-only .map-stage { inset: 0; }
+.map-only .map-controls {
+  top: calc(12px + env(safe-area-inset-top)); right: calc(12px + env(safe-area-inset-right));
+}
+.map-only .map-controls button { width: 44px; height: 44px; }
+.map-only .map-compass {
+  right: calc(12px + env(safe-area-inset-right)); bottom: calc(12px + env(safe-area-inset-bottom));
+}
+.mo-title {
+  position: absolute; z-index: 3;
+  top: calc(12px + env(safe-area-inset-top)); left: calc(12px + env(safe-area-inset-left));
+  padding: 9px 14px;
+  background: #003349; color: #F1F1DE;
+  font-family: var(--serif); font-size: 16px; letter-spacing: 0.01em;
+  border-radius: 2px; box-shadow: var(--shadow-sm);
+  pointer-events: none;
+}
+.mo-key {
+  position: absolute; z-index: 3;
+  left: calc(12px + env(safe-area-inset-left)); bottom: calc(12px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  max-width: calc(100vw - 90px);
+}
+.mo-key-btn {
+  height: 44px; padding: 0 18px;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 2px; box-shadow: var(--shadow-sm);
+  font-size: 14px; font-weight: 600;
+}
+.mo-key-panel {
+  max-height: 55vh; overflow-y: auto;
+  box-shadow: var(--shadow-sm);
+}
+.mo-key-panel .legend { margin-bottom: 0; }
+.map-only .drawer {
+  position: fixed; inset: 0; z-index: 40;
+  border-left: 0; box-shadow: none;
+  padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);
+  animation: sheetUp .24s ease-out;
+}
+@keyframes sheetUp { from { transform: translateY(24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
 /* =================== PRINT =================== */
 @page { size: Letter; margin: 0.4in; }
 

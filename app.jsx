@@ -33,6 +33,9 @@ const Icon = {
 };
 
 // ---------- Map ----------
+// The full-screen phone page (map.html) sets window.MAP_ONLY and keeps its own saved view.
+const VIEW_KEY = window.MAP_ONLY ? 'medley-view-phone' : 'medley-view';
+
 function SitePlanMap({ lots, filteredIds, selected, onSelect, colorMode, showLabels, favorites, editMode, onMovePin, onOpenPavilion }) {
   const frameRef = useRef(null);
   const stageRef = useRef(null);
@@ -40,7 +43,7 @@ function SitePlanMap({ lots, filteredIds, selected, onSelect, colorMode, showLab
   // Restore the saved default view (zoom + pan) so the map opens at the framing
   // it was last left at. Saved to localStorage on change below.
   const SAVED_VIEW = (() => {
-    try { return JSON.parse(localStorage.getItem('medley-view') || 'null'); } catch (e) { return null; }
+    try { return JSON.parse(localStorage.getItem(VIEW_KEY) || 'null'); } catch (e) { return null; }
   })();
   const [zoom, setZoom] = useState(SAVED_VIEW && SAVED_VIEW.zoom ? SAVED_VIEW.zoom : 1);
   const [pan, setPan] = useState(SAVED_VIEW && SAVED_VIEW.pan ? SAVED_VIEW.pan : {x:0, y:0});
@@ -50,7 +53,7 @@ function SitePlanMap({ lots, filteredIds, selected, onSelect, colorMode, showLab
   useEffect(() => {
     if (editMode) return; // don't capture transient edit-mode framing
     const id = setTimeout(() => {
-      try { localStorage.setItem('medley-view', JSON.stringify({ zoom, pan })); } catch (e) {}
+      try { localStorage.setItem(VIEW_KEY, JSON.stringify({ zoom, pan })); } catch (e) {}
     }, 250);
     return () => clearTimeout(id);
   }, [zoom, pan, editMode]);
@@ -1608,6 +1611,17 @@ function PreferredLenderCard({ className }) {
 }
 
 // ---------- App ----------
+// Collapsible color key for the phone page.
+function KeyPanel({ colorMode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="mo-key">
+      {open && <div className="mo-key-panel"><Legend colorMode={colorMode}/></div>}
+      <button className="mo-key-btn" onClick={() => setOpen(o => !o)}>{open ? 'Hide key' : 'Key'}</button>
+    </div>
+  );
+}
+
 function App() {
   const [lots, setLots] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -1762,6 +1776,38 @@ function App() {
   }, [t.accent, t.mapBg]);
 
   const labelsVisible = t.labelMode === 'always';
+
+  // Phone landing page (map.html): just the map, edge to edge. Tapping a lot opens its
+  // details as a full-screen sheet.
+  if (window.MAP_ONLY) {
+    return (
+      <div className="app map-only">
+        <SitePlanMap
+          lots={lots}
+          filteredIds={lots.map(l => l.n)}
+          selected={selected}
+          onSelect={setSelected}
+          colorMode={colorMode}
+          showLabels={labelsVisible}
+          onOpenPavilion={() => setPavilionOpen(true)}
+          favorites={favorites}
+          editMode={false}
+          onMovePin={() => {}}
+        />
+        <div className="mo-title">Tableau at Medley</div>
+        <KeyPanel colorMode={colorMode}/>
+        {selected && (
+          <Drawer
+            lot={selected}
+            onClose={() => setSelected(null)}
+            favorites={favorites}
+            toggleFavorite={toggleFavorite}
+          />
+        )}
+        {pavilionOpen && <PavilionModal onClose={() => setPavilionOpen(false)}/>}
+      </div>
+    );
+  }
 
   return (
     <div className={classNames('app', editMode && 'edit-mode')}>
