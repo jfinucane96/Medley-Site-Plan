@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tableau at Medley · Interactive Site Plan · Empire Homes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap">
+
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>
+  // Tweak defaults — host rewrites this block on disk when user changes values.
+  window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#3D5A6C",
+    "mapBg": "#FFFFFF",
+    "labelMode": "hover"
+  }/*EDITMODE-END*/;
+</script>
+</head>
+<body style="background-color: rgb(247, 247, 238); font-family: Arial; font-size: 15px">
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#F8F7EE"/>
+    <g transform="translate(40,40)">
+      <rect x="0" y="20" width="50" height="100" fill="#7FB28A" rx="2"/>
+      <rect x="55" y="40" width="30" height="80" fill="#C76D72" rx="2"/>
+      <rect x="90" y="30" width="30" height="90" fill="#7CB8CD" rx="2"/>
+      <circle cx="60" cy="60" r="5" fill="#1B1F1A"/>
+      <circle cx="60" cy="60" r="2.5" fill="#F8F7EE"/>
+    </g>
+    <text x="100" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1F1A">Tableau at Medley</text>
+  </svg>
+</template>
+
+<script src="print-packet.js"></script>
+<script type="text/babel" data-presets="react" src="tweaks-panel.jsx"></script>
+<script type="text/babel" data-presets="react" src="data.jsx"></script>
+<script type="text/babel" data-presets="react" src="app.jsx"></script>
+</body>
+</html>

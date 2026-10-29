@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tableau at Medley · Interactive Site Plan · Empire Homes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap">
+
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>
+  // Tweak defaults — host rewrites this block on disk when user changes values.
+  window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#3D5A6C",
+    "mapBg": "#FFFFFF",
+    "labelMode": "hover"
+  }/*EDITMODE-END*/;
+</script>
+<meta name="ext-resource-dependency" content="assets/standalone/medley-site-map.jpg" data-resource-id="medleyMap" />
+<meta name="ext-resource-dependency" content="assets/buyer-journey-map.pdf" data-resource-id="buyerJourney" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-55-p1.jpg" data-resource-id="sb55p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-55-p2.jpg" data-resource-id="sb55p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-55-p3.jpg" data-resource-id="sb55p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-55-p4.jpg" data-resource-id="sb55p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-55-p5.jpg" data-resource-id="sb55p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p1.jpg" data-resource-id="sb57p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p2.jpg" data-resource-id="sb57p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p3.jpg" data-resource-id="sb57p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p4.jpg" data-resource-id="sb57p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p5.jpg" data-resource-id="sb57p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p1.jpg" data-resource-id="sb70p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p2.jpg" data-resource-id="sb70p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p3.jpg" data-resource-id="sb70p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p4.jpg" data-resource-id="sb70p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p5.jpg" data-resource-id="sb70p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p6.jpg" data-resource-id="sb70p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-70-p7.jpg" data-resource-id="sb70p7" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-69-p1.jpg" data-resource-id="sb69p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-69-p2.jpg" data-resource-id="sb69p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-69-p3.jpg" data-resource-id="sb69p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-69-p4.jpg" data-resource-id="sb69p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-68-p1.jpg" data-resource-id="sb68p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-68-p2.jpg" data-resource-id="sb68p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-68-p3.jpg" data-resource-id="sb68p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-68-p4.jpg" data-resource-id="sb68p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-68-p5.jpg" data-resource-id="sb68p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-68-p6.jpg" data-resource-id="sb68p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p1.jpg" data-resource-id="sb57p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p2.jpg" data-resource-id="sb57p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p3.jpg" data-resource-id="sb57p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p4.jpg" data-resource-id="sb57p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-57-p5.jpg" data-resource-id="sb57p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-72-p1.jpg" data-resource-id="sb72p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-72-p2.jpg" data-resource-id="sb72p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-72-p3.jpg" data-resource-id="sb72p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-72-p4.jpg" data-resource-id="sb72p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-72-p5.jpg" data-resource-id="sb72p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-73-p1.jpg" data-resource-id="sb73p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-73-p2.jpg" data-resource-id="sb73p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-73-p3.jpg" data-resource-id="sb73p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-73-p4.jpg" data-resource-id="sb73p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-71-p1.jpg" data-resource-id="sb71p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-71-p2.jpg" data-resource-id="sb71p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-71-p3.jpg" data-resource-id="sb71p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-71-p4.jpg" data-resource-id="sb71p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-71-p5.jpg" data-resource-id="sb71p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-71-p6.jpg" data-resource-id="sb71p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-56-p1.jpg" data-resource-id="sb56p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-56-p2.jpg" data-resource-id="sb56p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-56-p3.jpg" data-resource-id="sb56p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-56-p4.jpg" data-resource-id="sb56p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-56-p5.jpg" data-resource-id="sb56p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-54-p1.jpg" data-resource-id="sb54p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-54-p2.jpg" data-resource-id="sb54p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-54-p3.jpg" data-resource-id="sb54p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-54-p4.jpg" data-resource-id="sb54p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-54-p5.jpg" data-resource-id="sb54p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-53-p1.jpg" data-resource-id="sb53p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-53-p2.jpg" data-resource-id="sb53p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-53-p3.jpg" data-resource-id="sb53p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-53-p4.jpg" data-resource-id="sb53p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-53-p5.jpg" data-resource-id="sb53p5" />
+<meta name="ext-resource-dependency" content="assets/homeowner-app-p1.jpg" data-resource-id="homeownerApp1" />
+<meta name="ext-resource-dependency" content="assets/homeowner-app-p2.jpg" data-resource-id="homeownerApp2" />
+<meta name="ext-resource-dependency" content="assets/pavilion/aerial.jpg" data-resource-id="pavAerial" />
+<meta name="ext-resource-dependency" content="assets/pavilion/aerial-firepit.jpg" data-resource-id="pavFirepit" />
+<meta name="ext-resource-dependency" content="assets/pavilion/pool.jpg" data-resource-id="pavPool" />
+<meta name="ext-resource-dependency" content="assets/pavilion/entrance.jpg" data-resource-id="pavEntrance" />
+<meta name="ext-resource-dependency" content="assets/empire-homes-logo.png" data-resource-id="empireLogo" />
+<meta name="ext-resource-dependency" content="assets/empire-homes-logo-color.png" data-resource-id="empireLogoColor" />
+<meta name="ext-resource-dependency" content="assets/tableau-logo.png" data-resource-id="tableauLogo" />
+<meta name="ext-resource-dependency" content="assets/tableau-logo-color.png" data-resource-id="tableauLogoColor" />
+<meta name="ext-resource-dependency" content="assets/design-collection-storyboard.pdf" data-resource-id="storyboardPdf" />
+<meta name="ext-resource-dependency" content="assets/standalone/landscape-1.jpg" data-resource-id="landscape1" />
+<meta name="ext-resource-dependency" content="assets/standalone/landscape-2.jpg" data-resource-id="landscape2" />
+<meta name="ext-resource-dependency" content="assets/standalone/landscape-3.jpg" data-resource-id="landscape3" />
+<meta name="ext-resource-dependency" content="assets/standalone/landscape-4.jpg" data-resource-id="landscape4" />
+<meta name="ext-resource-dependency" content="assets/standalone/landscape-5.jpg" data-resource-id="landscape5" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-2-first-floor.jpg" data-resource-id="mpB2First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-2-second-floor.jpg" data-resource-id="mpB2Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-2-third-floor.jpg" data-resource-id="mpB2Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-2-elevation-crop.jpg" data-resource-id="elevB2Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-2-elevation.jpg" data-resource-id="elevB2Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-3-first-floor.jpg" data-resource-id="mpB3First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-3-second-floor.jpg" data-resource-id="mpB3Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-3-third-floor.jpg" data-resource-id="mpB3Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-3-elevation-crop.jpg" data-resource-id="elevB3Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-3-elevation.jpg" data-resource-id="elevB3Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-7-first-floor.jpg" data-resource-id="mpB7First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-7-second-floor.jpg" data-resource-id="mpB7Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-7-third-floor.jpg" data-resource-id="mpB7Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-7-elevation-crop.jpg" data-resource-id="elevB7Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-7-elevation.jpg" data-resource-id="elevB7Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-8-first-floor.jpg" data-resource-id="mpB8First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-8-second-floor.jpg" data-resource-id="mpB8Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-8-third-floor.jpg" data-resource-id="mpB8Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-8-elevation-crop.jpg" data-resource-id="elevB8Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-8-elevation.jpg" data-resource-id="elevB8Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-16-first-floor.jpg" data-resource-id="mpB16First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-16-second-floor.jpg" data-resource-id="mpB16Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-16-third-floor.jpg" data-resource-id="mpB16Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-16-elevation-crop.jpg" data-resource-id="elevB16Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-16-elevation.jpg" data-resource-id="elevB16Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-13-first-floor.jpg" data-resource-id="mpB13First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-13-second-floor.jpg" data-resource-id="mpB13Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-13-third-floor.jpg" data-resource-id="mpB13Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-13-elevation-crop.jpg" data-resource-id="elevB13Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-13-elevation.jpg" data-resource-id="elevB13Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-14-first-floor.jpg" data-resource-id="mpB14First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-14-second-floor.jpg" data-resource-id="mpB14Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-14-third-floor.jpg" data-resource-id="mpB14Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-14-elevation-crop.jpg" data-resource-id="elevB14Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-14-elevation.jpg" data-resource-id="elevB14Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-17-first-floor.jpg" data-resource-id="mpB17First" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-17-second-floor.jpg" data-resource-id="mpB17Second" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-17-third-floor.jpg" data-resource-id="mpB17Third" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-17-elevation-crop.jpg" data-resource-id="elevB17Crop" />
+<meta name="ext-resource-dependency" content="assets/standalone/marketing/building-17-elevation.jpg" data-resource-id="elevB17Sheet" />
+<meta name="ext-resource-dependency" content="assets/standalone/renderings/harleigh-slab.jpg" data-resource-id="renderHarleigh" />
+<meta name="ext-resource-dependency" content="assets/standalone/renderings/hayden-basement.jpg" data-resource-id="renderHaydenBasement" />
+<meta name="ext-resource-dependency" content="assets/standalone/renderings/hayden-slab.jpg" data-resource-id="renderHaydenSlab" />
+<meta name="ext-resource-dependency" content="assets/standalone/renderings/raleigh.jpg" data-resource-id="renderRaleigh" />
+<meta name="ext-resource-dependency" content="assets/lots.json" data-resource-id="lotsJson" />
+<meta name="ext-resource-dependency" content="assets/lot-data.json" data-resource-id="lotDataJson" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/roof.jpg" data-resource-id="roofImg" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/gutter-bronze.jpg" data-resource-id="gutterImg" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/light-wellsworth.jpg" data-resource-id="lightWellsworth" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/light-howell.jpg" data-resource-id="lightHowell" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-1.jpg" data-resource-id="brick1" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-2.jpg" data-resource-id="brick2" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-3.jpg" data-resource-id="brick3" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-4.jpg" data-resource-id="brick4" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-5.jpg" data-resource-id="brick5" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-6.jpg" data-resource-id="brick6" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-7.jpg" data-resource-id="brick7" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-8.jpg" data-resource-id="brick8" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-9.jpg" data-resource-id="brick9" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-10.jpg" data-resource-id="brick10" />
+<meta name="ext-resource-dependency" content="assets/standalone/schemes/brick-mosswood.jpg" data-resource-id="brickMosswood" />
+<meta name="ext-resource-dependency" content="assets/standalone/floorplan-harleigh.jpg" data-resource-id="floorplanHarleigh" />
+<meta name="ext-resource-dependency" content="assets/standalone/floorplan-hayden-slab.jpg" data-resource-id="floorplanHaydenSlab" />
+<meta name="ext-resource-dependency" content="assets/standalone/floorplan-raleigh.jpg" data-resource-id="floorplanRaleigh" />
+<meta name="ext-resource-dependency" content="assets/standalone/floorplan-sheet-raleigh.jpg" data-resource-id="floorplanSheetRaleigh" />
+<meta name="ext-resource-dependency" content="assets/standalone/floorplan-sheet-harleigh.jpg" data-resource-id="floorplanSheetHarleigh" />
+<meta name="ext-resource-dependency" content="assets/standalone/floorplan-sheet-hayden-slab.jpg" data-resource-id="floorplanSheetHaydenSlab" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/shopping.jpg" data-resource-id="lifeShopping" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/bike-market.jpg" data-resource-id="lifeBikeMarket" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/cocktail.jpg" data-resource-id="lifeCocktail" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/cafe-laptop.jpg" data-resource-id="lifeCafeLaptop" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/ice-cream.jpg" data-resource-id="lifeIceCream" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/dining-pizza.jpg" data-resource-id="lifeDiningPizza" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/barista.jpg" data-resource-id="lifeBarista" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/park-family.jpg" data-resource-id="lifeParkFamily" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/pug.jpg" data-resource-id="lifePug" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/dog.jpg" data-resource-id="lifeDog" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/wellness.jpg" data-resource-id="lifeWellness" />
+<meta name="ext-resource-dependency" content="assets/standalone/lifestyle/boutique-hats.jpg" data-resource-id="lifeBoutiqueHats" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-65-p1.jpg" data-resource-id="sb65p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-65-p2.jpg" data-resource-id="sb65p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-65-p3.jpg" data-resource-id="sb65p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-65-p4.jpg" data-resource-id="sb65p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-65-p5.jpg" data-resource-id="sb65p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-65-p6.jpg" data-resource-id="sb65p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p1.jpg" data-resource-id="sb66p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p2.jpg" data-resource-id="sb66p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p3.jpg" data-resource-id="sb66p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p4.jpg" data-resource-id="sb66p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p5.jpg" data-resource-id="sb66p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p6.jpg" data-resource-id="sb66p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p7.jpg" data-resource-id="sb66p7" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-66-p8.jpg" data-resource-id="sb66p8" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p1.jpg" data-resource-id="sb67p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p2.jpg" data-resource-id="sb67p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p3.jpg" data-resource-id="sb67p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p4.jpg" data-resource-id="sb67p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p5.jpg" data-resource-id="sb67p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p6.jpg" data-resource-id="sb67p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-67-p7.jpg" data-resource-id="sb67p7" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-64-p1.jpg" data-resource-id="sb64p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-64-p2.jpg" data-resource-id="sb64p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-64-p3.jpg" data-resource-id="sb64p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-64-p4.jpg" data-resource-id="sb64p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p1.jpg" data-resource-id="sb50p1" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p2.jpg" data-resource-id="sb50p2" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p3.jpg" data-resource-id="sb50p3" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p4.jpg" data-resource-id="sb50p4" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p5.jpg" data-resource-id="sb50p5" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p6.jpg" data-resource-id="sb50p6" />
+<meta name="ext-resource-dependency" content="assets/storyboards/pages/lot-50-p7.jpg" data-resource-id="sb50p7" />
+</head>
+<body style="background-color: rgb(247, 247, 238); font-family: Arial; font-size: 15px">
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#F8F7EE"/>
+    <g transform="translate(40,40)">
+      <rect x="0" y="20" width="50" height="100" fill="#7FB28A" rx="2"/>
+      <rect x="55" y="40" width="30" height="80" fill="#C76D72" rx="2"/>
+      <rect x="90" y="30" width="30" height="90" fill="#7CB8CD" rx="2"/>
+      <circle cx="60" cy="60" r="5" fill="#1B1F1A"/>
+      <circle cx="60" cy="60" r="2.5" fill="#F8F7EE"/>
+    </g>
+    <text x="100" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1B1F1A">Tableau at Medley</text>
+  </svg>
+</template>
+
+<script src="standalone-print-packet.js"></script>
+<script type="text/babel" data-presets="react" src="tweaks-panel.jsx"></script>
+<script type="text/babel" data-presets="react" src="standalone-data.jsx"></script>
+<script type="text/babel" data-presets="react" src="standalone-app.jsx"></script>
+</body>
+</html>
