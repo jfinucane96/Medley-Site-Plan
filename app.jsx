@@ -62,17 +62,68 @@ function SitePlanMap({ lots, filteredIds, selected, onSelect, colorMode, showLab
     const delta = -e.deltaY * 0.0015;
     setZoom(z => Math.min(5, Math.max(1, z * (1 + delta))));
   }
-  function onMouseDown(e) {
-    if (e.target.closest('.lot-marker')) return;
-    setDrag({ sx: e.clientX, sy: e.clientY, px: pan.x, py: pan.y, type: 'pan' });
-  }
-  function onMouseMove(e) {
-    if (!drag) return;
-    if (drag.type === 'pan') {
-      setPan({ x: drag.px + (e.clientX - drag.sx), y: drag.py + (e.clientY - drag.sy) });
+  // Touch + mouse: one pointer pans, two pointers pinch-zoom (about the fingers' midpoint).
+  const ptrs = useRef(new Map());
+  const gest = useRef(null);
+  const lastMoved = useRef(false);
+  const viewRef = useRef({ zoom, pan });
+  viewRef.current = { zoom, pan };
+
+  function beginGesture() {
+    const v = viewRef.current;
+    const pts = [...ptrs.current.values()];
+    if (pts.length === 1) {
+      gest.current = { mode: 'pan', sx: pts[0].x, sy: pts[0].y, px: v.pan.x, py: v.pan.y, moved: gest.current ? gest.current.moved : false };
+    } else if (pts.length >= 2) {
+      const [a, b] = pts;
+      gest.current = { mode: 'pinch', dist: Math.hypot(a.x - b.x, a.y - b.y) || 1, z: v.zoom, px: v.pan.x, py: v.pan.y,
+                       mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2, moved: true };
+    } else {
+      gest.current = null;
     }
   }
-  function onMouseUp() { setDrag(null); }
+  function onPointerDown(e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (editMode && e.target.closest('.lot-marker')) return;
+    if (ptrs.current.size === 0) gest.current = null;
+    lastMoved.current = false;
+    ptrs.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    beginGesture();
+    if (ptrs.current.size === 1) gest.current.moved = false;
+    setDrag(true);
+  }
+  function onPointerMove(e) {
+    if (!ptrs.current.has(e.pointerId) || !gest.current) return;
+    ptrs.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const g = gest.current;
+    if (g.mode === 'pan') {
+      const dx = e.clientX - g.sx, dy = e.clientY - g.sy;
+      if (!g.moved && Math.hypot(dx, dy) < 6) return;
+      g.moved = true;
+      setPan({ x: g.px + dx, y: g.py + dy });
+    } else {
+      const [a, b] = [...ptrs.current.values()];
+      const z = Math.min(6, Math.max(1, g.z * (Math.hypot(a.x - b.x, a.y - b.y) / g.dist)));
+      const r = frameRef.current.getBoundingClientRect();
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const sx = (a.x + b.x) / 2, sy = (a.y + b.y) / 2;
+      setZoom(z);
+      setPan({ x: sx - cx - z * (g.mx - cx - g.px) / g.z, y: sy - cy - z * (g.my - cy - g.py) / g.z });
+    }
+  }
+  function onPointerEnd(e) {
+    if (!ptrs.current.delete(e.pointerId)) return;
+    const wasMoved = !!(gest.current && gest.current.moved);
+    lastMoved.current = wasMoved;
+    beginGesture();
+    if (gest.current) gest.current.moved = wasMoved;
+    else setDrag(false);
+  }
+  // A drag or pinch that ends over a lot pin must not also count as a tap on it.
+  function onClickCapture(e) {
+    if (lastMoved.current) e.stopPropagation();
+    lastMoved.current = false;
+  }
 
   // SVG → image coords mapping for edit-mode placement
   function svgPointFromClient(clientX, clientY) {
@@ -129,14 +180,16 @@ function SitePlanMap({ lots, filteredIds, selected, onSelect, colorMode, showLab
         className="map-frame"
         ref={frameRef}
         onWheel={onWheel}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerEnd}
+        onPointerCancel={onPointerEnd}
+        onPointerLeave={(e) => { if (e.pointerType === 'mouse') onPointerEnd(e); }}
+        onClickCapture={onClickCapture}
         style={{ cursor: drag ? 'grabbing' : (editMode ? 'crosshair' : 'grab') }}
       >
         <div
-          className="map-stage"
+          className={classNames('map-stage', drag && 'no-anim')}
           ref={stageRef}
           style={{
             transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
