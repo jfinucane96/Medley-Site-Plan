@@ -1794,7 +1794,7 @@ function App() {
           editMode={false}
           onMovePin={() => {}}
         />
-        <div className="mo-title">Tableau at Medley</div>
+        <a className="mo-title" href="./">Tableau at Medley</a>
         <KeyPanel colorMode={colorMode}/>
         {selected && (
           <Drawer

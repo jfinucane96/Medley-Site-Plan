@@ -1823,7 +1823,7 @@ html:has(.map-only), body:has(.map-only) { overflow: hidden; overscroll-behavior
   background: #003349; color: #F1F1DE;
   font-family: var(--serif); font-size: 16px; letter-spacing: 0.01em;
   border-radius: 2px; box-shadow: var(--shadow-sm);
-  pointer-events: none;
+  text-decoration: none;
 }
 .mo-key {
   position: absolute; z-index: 3;
