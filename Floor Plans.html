@@ -36,6 +36,18 @@
     gap: 22px;
   }
   .fp-head img { height: 54px; width: auto; display: block; }
+  .fp-back {
+    margin-left: auto; flex: 0 0 auto;
+    color: #F3F1E9; text-decoration: none;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    border: 1px solid rgba(243,241,233,.45); border-radius: 3px;
+    padding: 11px 16px; transition: background .15s;
+  }
+  .fp-back:hover { background: rgba(243,241,233,.16); }
+  @media (max-width: 640px) {
+    header.fp-head { flex-wrap: wrap; padding: 20px 20px 18px; gap: 14px 18px; }
+    .fp-back { margin-left: 0; width: 100%; text-align: center; }
+  }
   .fp-head .titles { line-height: 1.15; }
   .fp-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
@@ -148,11 +160,12 @@
 </head>
 <body>
   <header class="fp-head">
-    <img src="assets/tableau-logo.png" alt="Tableau at Medley"/>
+    <a href="./" aria-label="Back to the site map"><img src="assets/tableau-logo.png" alt="Tableau at Medley"/></a>
     <div class="titles">
       <div class="fp-eyebrow">Tableau at Medley · Empire Homes</div>
       <h1>Floor Plans</h1>
     </div>
+    <a class="fp-back" href="./">&larr; Back to site map</a>
   </header>
 
   <main>
